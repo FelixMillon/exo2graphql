@@ -27,6 +27,7 @@ export const resolvers: Resolvers = {
     films: async (parent, _, {dataSources}) => {
       const filmsData = await dataSources.FilmAPI.getPeopleFilms(parent.films);
       return filmsData;
-    }
+    },
+    eyeColor: (parent, _, __) => parent["eye_color"]
   }
 }
