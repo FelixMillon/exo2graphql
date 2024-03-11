@@ -29,6 +29,7 @@ export class FilmAPI extends RESTDataSource {
     let peoples = []
     for(let index in uri_list){
       const people = await this.getFilmPeopleById(uri_list[index])
+      people["eyeColor"] = people["eye_color"] 
       peoples.push(people)
     }
     return peoples
@@ -47,6 +48,7 @@ export class FilmAPI extends RESTDataSource {
     for(let index in data){
       const people_id = data[index]["id"]
       const people = await this.getPeopleById(people_id)
+      people["eyeColor"] = people["eye_color"]
       peoples.push(people)
     }
     console.log(peoples)
